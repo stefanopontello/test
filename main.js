@@ -8,12 +8,13 @@ function loadDoc() {
       myFunction(this);
     }
   };
-  xhttp.open("GET", "http://localhost/double_entry/cd_catalog.xml", true);
+  xhttp.open("GET", "https://stefanopontello.github.io/cd_catalog.xml", true);
   xhttp.send();
 }
 
-var i; 
+
 function myFunction(xml) {
+  var i;
   var xmlDoc = xml.responseXML;
   var table="";
   var x = xmlDoc.getElementsByTagName("CD1");
