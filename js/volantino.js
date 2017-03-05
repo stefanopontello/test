@@ -11,8 +11,8 @@ var myData = {
     		 },
     "003" : { 
 	    		"description" : "Paid 8227 with cash for the insurance contract", 
-	    		"debitname": "Insurace expenses",
-				"creditname": "Check"
+	    		"debitname": "Insurance expenses",
+				"creditname": "Checks"
     		 },
     "004" : { 
 	    		"description" : "An amount of $50,000 was paid for six months of rent.", 
