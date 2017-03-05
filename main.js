@@ -20,7 +20,7 @@ for (var i = 0; i < keyArray.length; ++i) {
     "</td></tr><tr><td><select id='accounts_credit'><option value='Cash'>Cash</option><option value='Accounts receivable'>Accounts receivable</option><option value='Furniture'>Furniture</option><option value='Supplies'>Supplies</option><option value='Accounts payable'>Accounts payable</option></select>" +
     "</td><td><input type='number' id='3' disabled></td>" +
     "<td><input type='number' id='4' name='question2'></td>" +
-    "<tr><td><button id='button' type='button' onclick='check();' value='Check'>Check</button></tr></td>";
+    "<tr><td><button id='button' type='button' onclick='check(i);' value='Check'>Check</button></tr></td>";
 }
 
 document.getElementById("lista").innerHTML = table;
