@@ -1,0 +1,10 @@
+body {
+	font-family: 'Lato', sans-serif;
+	padding: 20px;
+}
+td {
+	padding: 8px;
+}
+h4, p {
+	display: inline;
+}
