@@ -1,5 +1,5 @@
 body {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Lato', sans-serif !important;
 	padding: 20px;
 }
 td {
@@ -7,4 +7,22 @@ td {
 }
 h4, p {
 	display: inline;
+}
+
+.multiple {
+	width: 220px;
+	height: 33.33px;
+	text-align: left;
+	vertical-align: middle;
+	padding-left: 6px;
+	border-radius: 5px;
+	font-size: 14px;
+
+}
+
+.barra-importo {
+	text-align: right;
+}
+select:focus {
+    outline:none;
 }

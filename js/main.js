@@ -1,3 +1,13 @@
+$(document).ready(
+
+$('.selectpicker').selectpicker({
+  size: 5
+})
+
+);
+
+
+
 //SHUFFLE FUNCTION
 var keyArray = Object.keys(myData);
 
@@ -16,12 +26,12 @@ function displayCD(i) {
     var current = myData[keyArray[i]];
     table = "<tr><td colspan='3'><h3>" + 
     current.description +
-    "</h3></td></tr><tr><td><select id='accounts_debit' class='multiple'></select></td>" +
-    "<td><input type='number' id='textbox' name='question1'></td>" +
-    "<td><input type='number' id='2' disabled>" +
-    "</td></tr><tr><td><select id='accounts_credit' class='multiple'></select></td>" +
-    "<td><input type='number' id='3' disabled></td>" +
-    "<td><input type='number' id='4' name='question2'></td>" +
+    "</h3></td></tr><tr><td><select id='accounts_debit' class=' multiple' data-live-search='true'></select></td>" +
+    "<td><input type='number' class='form-control barra-importo' id='textbox' name='question1'></td>" +
+    "<td><input type='number' class='form-control barra-importo' id='2' disabled>" +
+    "</td></tr><tr><td><select id='accounts_credit' class='selectpicker' data-live-search='true'></select></td>" +
+    "<td><input type='number' class='form-control barra-importo' id='3' disabled></td>" +
+    "<td><input type='number' class='form-control barra-importo'id='4' name='question2'></td>" +
     "<tr><td><button id='button' type='button' onclick='check(i);' value='Check'>Check</button></tr>";
     document.getElementById("lista").innerHTML = table;
 
@@ -42,7 +52,10 @@ function next() {
 if (i < keyArray.length-1) {
   i++;
   document.getElementById("results").innerHTML = "";
+  document.getElementById("showbutton").innerHTML = "";
   displayCD(i);
+  } else {
+      document.getElementById("showbutton").innerHTML = "<input type='button' onclick='getScore()' value='Get Score'>"
   }
 }
 
@@ -71,7 +84,7 @@ function check(i) {
     };
 
   };
-  
+
 function getScore (){
   if(score >= 3) {
     document.getElementById("results").innerHTML = "<h4>Compliments, your score is " + score + "!<br><br><img src='https://media.giphy.com/media/GCLlQnV7wzKLu/giphy.gif'>";
@@ -121,3 +134,4 @@ for (var i = 0; i < keyArray.length; ++i) {
 };
 
 document.getElementById("lista").innerHTML = table;*/
+
