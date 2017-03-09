@@ -23,18 +23,22 @@ var options =
   {
     "text": "Accounts payable",
     "value": "Accounts payable",
+    "nature": "Liability",
   },
   {
     "text": "Insurance expenses",
     "value": "Insurance expenses",
+    "nature": "Expense",
   },
   {
     "text": "Prepaid Rent",
     "value": "Prepaid Rent",
+    "nature": "Expense",
   },
   {
     "text": "Checks",
     "value": "Checks",
+    "nature": "Asset",
   }
 ];
 
