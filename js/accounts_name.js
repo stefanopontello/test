@@ -16,6 +16,16 @@ var options =
     "nature": "Asset",
   },
   {
+    "text": "Equipment",
+    "value": "Equipment",
+    "nature": "Asset",
+  },
+  {
+    "text": "Office supplies",
+    "value": "Office supplies",
+    "nature": "Asset",
+  },
+  {
     "text": "Supplies",
     "value": "Supplies",
     "nature": "Asset",
@@ -34,12 +44,8 @@ var options =
     "text": "Prepaid Rent",
     "value": "Prepaid Rent",
     "nature": "Expense",
-  },
-  {
-    "text": "Checks",
-    "value": "Checks",
-    "nature": "Asset",
   }
+
 ];
 
 

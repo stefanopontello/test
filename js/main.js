@@ -16,13 +16,14 @@ function displayCD(i) {
     var current = myData[keyArray[i]];
     table = "<tr><td colspan='3'><h3>" + 
     current.description +
-    "</h3></td></tr><tr><td><select id='accounts_debit' class='multiple' data-live-search='true'></select></td>" +
-    "<td><input type='number' class='form-control barra-importo' id='amount_debit' name='question1'></td>" +
-    "<td><input type='number' class='form-control barra-importo' id='2' disabled>" +
-    "</td></tr><tr><td><select id='accounts_credit' class='multiple' data-live-search='true'></select></td>" +
-    "<td><input type='number' class='form-control barra-importo' id='3' disabled></td>" +
-    "<td><input type='number' class='form-control barra-importo'id='amount_credit' name='question2'></td>" +
-    "<tr><td colspan='3'><button id='button' type='button' onclick='check(i);' value='Check'>Check</button></tr>";
+    "</h3></td></tr><tr><td><select id='accounts_debit' class='multiple' data-live-search='true'><option value='choice' id='choice' selected> - Select the account - </option></select></td>" +
+    "<td><input type='number' class='form-control barra-importo' id='amount_debit' required></td>" +
+    "<td><input type='number' class='form-control barra-importo' disabled>" +
+    "</td></tr><tr><td><select id='accounts_credit' class='multiple' data-live-search='true'><option value='choice' id='choice' selected> - Select the account - </option></select></td>" +
+    "<td><input type='number' class='form-control barra-importo' disabled></td>" +
+    "<td><input type='number' class='form-control barra-importo'id='amount_credit' required></td></tr>" +
+    "<tr><td colspan='3'><input type='button' onclick='previous()' value='<<' class='button'><input type='button' onclick='next()' value='>>' class='button'><div id='showbutton' class='button'></div><button class='button' id='button' type='button' onclick='check(i);' value='Check'>Check</button></tr>";
+    
     document.getElementById("lista").innerHTML = table;
 
     var selectBox = document.getElementById("accounts_debit");
@@ -36,9 +37,6 @@ function displayCD(i) {
       var option = options[f];
       selectBox2.options.add( new Option(option.text, option.value, option.selected) );
     }
-
-
-
   }
 
 function next() {
@@ -48,7 +46,7 @@ if (i < keyArray.length-1) {
   document.getElementById("showbutton").innerHTML = "";
   displayCD(i);
   } else {
-      document.getElementById("showbutton").innerHTML = "<input type='button' onclick='getScore()' value='Get Score'>"
+      document.getElementById("showbutton").innerHTML = "<input type='button' onclick='getScore()' value='Get Score' class='button'>"
   }
 }
 
@@ -90,13 +88,11 @@ function getScore (){
   }
 }
 
-
 var seleziona = document.getElementById("prova");
   for(var f = 0, l = options.length; f < l; f++){
     var option = options[f];
     seleziona.options.add( new Option(option.text, option.value, option.selected) );
   };
-
 
 //SELECTPICKER
 $('.selectpicker').selectpicker({
