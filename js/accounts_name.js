@@ -3,12 +3,14 @@ var options =
   {
     "text": "Cash",
     "value": "Cash",
-    "nature": "Asset",
+    "id": "Asset",
   },
   {
     "text": "Furniture",
     "value": "Furniture",
-    "nature": "Asset",
+    "id": "Liability",
+    "increase": "debit",
+    "decrease": "credit",
   },
   {
     "text": "Accounts receivable",

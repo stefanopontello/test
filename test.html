@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<title>Double-Entry Bookkeeping Exercises & Test</title>
+		<link rel="icon" type="image/png" href="favicon.png">
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+		<link href="style.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+		<header>
+			<h1 class="title">Double-entry Test</h1>
+			<a href="index.html"><h5 class="title" style="float: right;">Back to the homepage</h5></a>
+		</header>
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="content_help">
+					<div id="form-number-question">
+						<br>
+						<h4>Insert number of questions for this test:</h4>
+						<input type='number' class='form-control question_number' id="number-question" min="1" max="10">
+						<br><br>
+						<h4>Insert a timer:
+						<input type='number' class='form-control question_number' id="timer-test" min="1" max="10"> (min)</h4>
+						<br><br>
+						<button onClick="clock();startquestion();">GO!</button>	
+					</div>
+					<form>
+						<table id="lista" class="table table-nonfluid">
+							<!-- ARTICLES HERE -->
+						</table>
+					</form>	
+					<div id="danger-alert"></div>
+					<div id="results"></div>
+				</div>
+			</div>
+			<!-- Sidebar -->
+			<div class="col-sm-4">
+				<div>
+					<h3>Questions left: </h3>
+					<br>
+					<h3><div id="clockdiv"></div></h3>
+				</div>
+			</div>
+		</div>
+		<div id="barra"></div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Results</h4>
+		      </div>
+		      <div class="modal-body" id="modal-results">
+		      		<!-- RESULT IS HERE -->
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary" onclick="reload()">Restart</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		<!-- Footer -->
+		<footer>
+			<hr>
+			<p><a href="about.html">About me</a> | <a href="about.html">Wanna help? Shoot me an e-mail at: </a></p>
+        </footer>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+		<script type="text/javascript" src="js/accounts_name.js"></script>
+		<script src="js/volantino.js"></script>		
+		<script src="js/main-test.js"></script>
+	</body>
+</html>
+
+
