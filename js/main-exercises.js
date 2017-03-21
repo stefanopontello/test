@@ -28,10 +28,11 @@ function displayCD(i) {
     "</td></tr><tr><td><select id='accounts_credit' class='multiple' data-live-search='true'><option value='undefined' id='choice' selected> - Select the account - </option></select></td>" +
     "<td><input type='number' class='form-control barra-importo' min='0' disabled></td>" +
     "<td><input type='number' class='form-control barra-importo'id='amount_credit' min='0' required></td></tr>" +
-    "<tr><td colspan='3'><input type='button' onclick='previous()' value='<<' class='button'><input type='button' onclick='next()' value='Skip' class='button'><div id='showbutton' class='button'></div><button class='button' id='button' type='button' onclick='check(i);' value='Check'>Check</button></tr>";
+    "<tr><td colspan='3'><input type='button' onclick='previous()' value='<<' class='button'> <input type='button' onclick='next()' value='Skip' class='button'> <div id='showbutton' class='button'><input type='button' onclick='seeSolution(i)' value='See solution' class='button'></div><button class='button' id='button' type='button' onclick='check(i);' value='Check'>Check</button></tr>";
     
     document.getElementById("lista").innerHTML = table;
-
+    document.getElementById('hint-debit').innerHTML = "<a onclick='showHint_debit(i)''>Click here to see the debit account</a>";
+    document.getElementById('hint-credit').innerHTML = "<a onclick='showHint_credit(i)'>Click here to see the credit account</a>";
     var selectBox = document.getElementById("accounts_debit");
     for(var f = 0, l = options.length; f < l; f++){
       var option = options[f];
@@ -51,6 +52,9 @@ if (i < keyArray.length-1) {
   i++;
   document.getElementById("results").innerHTML = "";
   document.getElementById("showbutton").innerHTML = "";
+  document.getElementById('hint-debit').innerHTML = "<a onclick='showHint_debit(i)''>Click here to see the debit account</a>";
+  document.getElementById('hint-credit').innerHTML = "<a onclick='showHint_credit(i)'>Click here to see the credit account</a>";
+  document.getElementById('show-solution').innerHTML = "";
   displayCD(i);
   } else {
       document.getElementById("showbutton").innerHTML = "<input type='button' onclick='getScore()' data-toggle='modal' data-target='#myModal' value='Get Score' class='button'>"
@@ -65,6 +69,7 @@ if (i > 0) {
   displayCD(i);
   }
 }
+
 
 var score = 0;
 // Check entry
@@ -83,11 +88,19 @@ function check(i) {
       document.getElementById('danger-alert').innerHTML = "<div class='alert alert-success' role='alert'>Correct! <input type='button' onclick='next()' value='Next' class='button'></div>";
       score++
       } else {
-      document.getElementById('danger-alert').innerHTML = "<div class='alert alert-danger' role='alert'>Incorrect!</div>";
+      document.getElementById('danger-alert').innerHTML = "<div class='alert alert-danger' role='alert'>Incorrect, try again!</div>";
       };
     };
   }
 
+function showHint_debit(i) {
+  var current = myData[keyArray[i]];
+  document.getElementById('hint-debit').innerHTML = current.debitname;
+}
+function showHint_credit(i) {
+  var current = myData[keyArray[i]];
+  document.getElementById('hint-credit').innerHTML = current.creditname;
+}
 // Get score function (on modal)
 function getScore(){
   if(score >= 3) {
@@ -122,3 +135,8 @@ function getDataAccount(str){
     document.getElementById("txtHint").innerHTML = "Hola amigos";
   }
 };
+
+function seeSolution(i) {
+  var current = myData[keyArray[i]];
+  document.getElementById('show-solution').innerHTML = "<div class='alert alert-success' role='alert'><h4>Solution: </h4><br><br><p>DR. " + current.debitname + " | CR. " + current.creditname + "</p><br><p>Amount: " + current.amount + "</p></div>";
+}

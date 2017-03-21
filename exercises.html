@@ -4,9 +4,8 @@
 		<link rel="icon" type="image/png" href="favicon.png">
 		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-		<link href="style.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="container">
@@ -23,6 +22,7 @@
 						</table>
 					</form>	
 					<div id="danger-alert"></div>
+					<div id="show-solution"></div>
 					<div id="results"></div>
 				</div>
 			</div>
@@ -33,7 +33,15 @@
 					<select class="selectpicker" data-live-search="true" id="prova" onChange="getDataAccount(this);">
 					</select>
 					<br><br>
-					<div id="txtHint">Account info will be listed here...</div>
+					<div id="txtHint">
+						<p>Account info will be listed here</p><br>
+						<p>Nature: </p><br>
+						<p>Increase: </p><br>
+						<p>Decrease: </p><br>
+					</div>
+					<hr>
+					<i class="fa fa-lightbulb-o" aria-hidden="true"></i><div id="hint-debit"></div>
+					<div id="hint-credit"></div>
 				</div>
 			</div>
 		</div>

@@ -79,11 +79,11 @@ function check(i) {
     } else {
       document.getElementById('danger-alert').innerHTML = "";
       if (name_debit == current.debitname && name_credit == current.creditname && amount_debit == current.amount && amount_credit == current.amount) {
-      //document.getElementById("results").innerHTML = "<img src='https://media.giphy.com/media/GCLlQnV7wzKLu/giphy.gif'>";
       next();
       score++
       } else {
-        //document.getElementById("results").innerHTML = "<img src='http://gifrific.com/wp-content/uploads/2012/04/NPH-dissapoint.gif'>";
+        localStorage['myKey'] = name_debit;
+        localStorage['myKey2'] = current.debitname;
         next();
       };
     };
@@ -91,10 +91,12 @@ function check(i) {
 
 // Get score function (on modal)
 function getScore(){
-  if(score >= 3) {
+  if(score >= numberquestions * 0.5) {
     document.getElementById("modal-results").innerHTML = "<h4>Well done, your score is " + score + " / " + numberquestions + "!<br><br><img src='https://media.giphy.com/media/GCLlQnV7wzKLu/giphy.gif'>";
   } else {
-    document.getElementById("modal-results").innerHTML = "<h4>You can do better, your score is " + score + " / " + numberquestions + ".<br><br><img src='http://gifrific.com/wp-content/uploads/2012/04/NPH-dissapoint.gif'>";
+    var myVar = localStorage['myKey'];
+    var myVar2 = localStorage['myKey2'];
+    document.getElementById("modal-results").innerHTML = "<h4>You can do better, your score is " + score + " / " + numberquestions + ".<br><br><h3>Errors: <br> You wrote " + myVar + " instead of " + myVar2 + "</h3><br><img src='http://gifrific.com/wp-content/uploads/2012/04/NPH-dissapoint.gif'>";
   }
 }
 
@@ -104,7 +106,10 @@ $('.selectpicker').selectpicker({
 });
 
 // Reload page (for modal)
-function reload() {location.reload();}
+function reload() {
+  localStorage.clear();
+  location.reload();
+}
 
 // Set number of questions
 var numberquestions = 0;
