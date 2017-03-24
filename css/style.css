@@ -114,3 +114,19 @@ optgroup {
 	opacity: 0.8; 
 	position: fixed;
 }
+.solutions-style-sol {
+	border-radius: 10px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.solutions-style-err {
+	border-radius: 10px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+tbody {
+	padding: 20px;
+}

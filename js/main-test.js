@@ -13,7 +13,7 @@ function shuffle(o){ //v1.0
 
 keyArray = shuffle(keyArray); // shuffle it!
 
-// Display entryonce at a time
+// Display entry once at a time
 var i = 0;
 //displayCD(i);
 var table="";
@@ -66,6 +66,7 @@ if (i > 0) {
 }
 
 var score = 0;
+var errors = [];
 // Check entry
 function check(i) {
   var current = myData[keyArray[i]];
@@ -75,28 +76,36 @@ function check(i) {
   var amount_credit = document.getElementById("amount_credit").value;
 
     if (name_debit == 'undefined' || name_credit == 'undefined' || amount_debit == '' || amount_credit == '') {
-      document.getElementById('danger-alert').innerHTML = "<div class='alert alert-danger' role='alert'>Please fill in all the fields</div>";
+      document.getElementById('danger-alert').innerHTML = "<div class='alert alert-warning' role='alert'>Please fill in all the fields</div>";
     } else {
       document.getElementById('danger-alert').innerHTML = "";
       if (name_debit == current.debitname && name_credit == current.creditname && amount_debit == current.amount && amount_credit == current.amount) {
       next();
       score++
       } else {
-        localStorage['myKey'] = name_debit;
-        localStorage['myKey2'] = current.debitname;
+        var newValue = { 'I_DN': name_debit, 'C_DN': current.debitname, 'I_CN': name_credit, 'C_CN': current.creditname, 'I_AD': amount_debit, 'C_AD': current.amount, 'I_AC': amount_credit, 'C_AC': current.amount};
+        errors.push(newValue);
+      }
+        console.log(errors);
         next();
       };
     };
-  }
 
 // Get score function (on modal)
 function getScore(){
   if(score >= numberquestions * 0.5) {
     document.getElementById("modal-results").innerHTML = "<h4>Well done, your score is " + score + " / " + numberquestions + "!<br><br><img src='https://media.giphy.com/media/GCLlQnV7wzKLu/giphy.gif'>";
   } else {
-    var myVar = localStorage['myKey'];
-    var myVar2 = localStorage['myKey2'];
-    document.getElementById("modal-results").innerHTML = "<h4>You can do better, your score is " + score + " / " + numberquestions + ".<br><br><h3>Errors: <br> You wrote " + myVar + " instead of " + myVar2 + "</h3><br><img src='http://gifrific.com/wp-content/uploads/2012/04/NPH-dissapoint.gif'>";
+    document.getElementById("modal-results").innerHTML = "<h4>You can do better, your score is " + score + " / " + numberquestions + ".<br><br><img src='http://gifrific.com/wp-content/uploads/2012/04/NPH-dissapoint.gif'>";
+    var l;
+    for (l=0; l<errors.length; l++)
+    {
+      document.getElementById("solutions").innerHTML += "<h3>Error:<br><br>" +
+      "<table class='solutions-style-err table table-nonfluid'><tr><td>" + errors[l].I_DN + "</td><td>" + errors[l].I_AD + "</td><td><input type='number' class='form-control barra-importo' min='0' disabled></td></tr>" +
+      "<tr><td>" + errors[l].I_CN + "</td><td><input type='number' class='form-control barra-importo' min='0' disabled></td><td>" + errors[l].I_AC + "</td></tr></table>" +
+      "<table class='solutions-style-sol table table-nonfluid'><tr><td>" + errors[l].C_DN + "</td><td>" + errors[l].C_AD + "</td><td><input type='number' class='form-control barra-importo' min='0' disabled></td></tr>" +
+      "<tr><td>" + errors[l].C_CN + "</td><td><input type='number' class='form-control barra-importo' min='0' disabled></td><td>" + errors[l].C_AC + "</td></tr></table>";
+    }
   }
 }
 
@@ -107,7 +116,6 @@ $('.selectpicker').selectpicker({
 
 // Reload page (for modal)
 function reload() {
-  localStorage.clear();
   location.reload();
 }
 

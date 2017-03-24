@@ -101,6 +101,7 @@ function showHint_credit(i) {
   var current = myData[keyArray[i]];
   document.getElementById('hint-credit').innerHTML = current.creditname;
 }
+
 // Get score function (on modal)
 function getScore(){
   if(score >= 3) {
