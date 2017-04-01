@@ -2,7 +2,6 @@
  * Double-Entry Bookkeeping Exercises & Test
  * Author: Stefano Pontello
  */
-
 // Shuffle function
 var keyArray = Object.keys(myData);
 
@@ -33,16 +32,15 @@ function displayCD(i) {
     document.getElementById("lista").innerHTML = table;
     document.getElementById('hint-debit').innerHTML = "<a onclick='showHint_debit(i)''>Click here to see the debit account</a>";
     document.getElementById('hint-credit').innerHTML = "<a onclick='showHint_credit(i)'>Click here to see the credit account</a>";
-    var selectBox = document.getElementById("accounts_debit");
+
     for(var f = 0, l = options.length; f < l; f++){
       var option = options[f];
-      selectBox.options.add( new Option(option.text, option.value, option.selected) );
+      $('#accounts_debit').append("<option value='" + option.value + "'>" + option.value + "</option>");                      
     }
 
-    var selectBox2 = document.getElementById("accounts_credit");
     for(var f = 0, l = options.length; f < l; f++){
       var option = options[f];
-      selectBox2.options.add( new Option(option.text, option.value, option.selected) );
+      $('#accounts_credit').append("<option value='" + option.value + "'>" + option.value + "</option>");                      
     }
   }
 
@@ -56,10 +54,8 @@ if (i < keyArray.length-1) {
   document.getElementById('hint-credit').innerHTML = "<a onclick='showHint_credit(i)'>Click here to see the credit account</a>";
   document.getElementById('show-solution').innerHTML = "";
   displayCD(i);
-  } else {
-      document.getElementById("showbutton").innerHTML = "<input type='button' onclick='getScore()' data-toggle='modal' data-target='#myModal' value='Get Score' class='button'>"
   }
-}
+};
 
 // Previous entry
 function previous() {
@@ -111,33 +107,39 @@ function getScore(){
   }
 }
 
+// Reload page (for modal)
+function reload() {location.reload();}
 
-/*  for(var f = 0, l = options.length; f < l; f++){
-    var option = options[f];
-    document.getElementById("prova").append = "<option value='" + option.value + "'>" + option.text + "</option>";
+/*var assetaccounts = options.filter(function( obj ) {
+  return obj.nature == "Asset";
+}); 
+var z = 0;
+for (z in assetaccounts) {
+  document.getElementById('prova').innerHTML += "<option value='" + assetaccounts[z].value + "'>" + assetaccounts[z].value + "</option>";                      
 };*/
 
 for(f=0; f<options.length; f++) {
-  $('#prova').append("<option value='" + options[f].value + "'>" + options[f].text + "</option>");                      
+  $('#prova').append("<option value='" + options[f].value + "'>" + options[f].value + "</option>");                      
 }
 
 //SELECTPICKER
 $('.selectpicker').selectpicker({
-  width: 300
+  width: 300,
+  size: 8
 });
 
-// Reload page (for modal)
-function reload() {location.reload();}
-
-function getDataAccount(str){
-    if (str.value == 'Liability') {
-    document.getElementById("txtHint").innerHTML = "Name of the account: " + str.text;
-  } else {
-    document.getElementById("txtHint").innerHTML = "Hola amigos";
-  }
-};
+function getDataAccount(value) {
+    var result = options.filter(function( obj ) {
+      return obj.value == value;
+    });
+     document.getElementById("txtHint").innerHTML = "<table><tr><td>Name of the account: </td><td><b>" + result[0].value + "</b></td></tr><br>" +
+     "<tr><td><p>Nature: </p></td><td><b>" + result[0].nature + "</b></td></tr>" + 
+     "<tr><td><p>Increase: </p></td><td><b>" + result[0].increase + "</b></td></tr>" + 
+     "<tr><td><p>Decrease: </p></td><td><b>" + result[0].decrease + "</b></td></tr></table>";
+}
 
 function seeSolution(i) {
   var current = myData[keyArray[i]];
   document.getElementById('show-solution').innerHTML = "<div class='alert alert-success' role='alert'><h4>Solution: </h4><br><br><p>DR. " + current.debitname + " | CR. " + current.creditname + "</p><br><p>Amount: " + current.amount + "</p></div>";
 }
+

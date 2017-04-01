@@ -10,7 +10,7 @@
 	<body>
 		<div class="container">
 		<header>
-			<h1 class="title">Double-entry Exercises</h1>
+			<a href="exercises.html" class="title-link"><h1 class="title">Double-entry Exercises</h1></a>
 			<a href="index.html"><h5 class="title" style="float: right;">Back to the homepage</h5></a>
 		</header>
 		<div class="row">
@@ -30,24 +30,23 @@
 				<div>
 			    	<h4 class="hint">Need a hint? Search in the bar below</h4>
 			    	<br><br>
-					<select class="selectpicker" data-live-search="true" id="prova" onChange="getDataAccount(this);">
+					<select class="selectpicker" data-live-search="true" onChange="getDataAccount(this.value);" title="Select the account to see its info">
+						<optgroup label="Asset" id="prova">
+						</optgroup>
 					</select>
 					<br><br>
-					<div id="txtHint">
-						<p>Account info will be listed here</p><br>
-						<p>Nature: </p><br>
-						<p>Increase: </p><br>
-						<p>Decrease: </p><br>
+					<div id="txtHint" style='text-align:center;'>
+    					
 					</div>
 					<hr>
-					<i class="fa fa-lightbulb-o" aria-hidden="true"></i><div id="hint-debit"></div>
+					<div id="hint-debit"></div>
 					<div id="hint-credit"></div>
 				</div>
 			</div>
 		</div>
 		<footer >
 			<hr>
-			<p><a href="about.html">About me</a> | <a href="about.html">Wanna help? Shoot me an e-mail at: </a></p>
+			<p><a href="about.html">About the project</a> | <a href="about.html">Wanna help? Shoot me an e-mail at: </a></p>
         </footer>
 		</div>
 

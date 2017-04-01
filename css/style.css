@@ -56,6 +56,15 @@ header {
 	font-family: 'Lato', sans-serif !important;
 	text-align: bottom;
 }
+
+.title-link {
+	text-decoration: none;
+	color: #333;
+}
+.title-link:hover {
+	color: #337ab7;
+}
+
 .button {
 	background: transparent;
 	border: 1 solid;
@@ -119,14 +128,19 @@ optgroup {
     color: #3c763d;
     background-color: #dff0d8;
     border-color: #d6e9c6;
+    border-style: hidden;
 }
 .solutions-style-err {
 	border-radius: 10px;
     color: #a94442;
     background-color: #f2dede;
     border-color: #ebccd1;
+    border-style: hidden;
 }
 
 tbody {
 	padding: 20px;
+}
+#txthint {
+	text-align: center; 
 }

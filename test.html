@@ -10,7 +10,7 @@
 	<body>
 		<div class="container">
 		<header>
-			<h1 class="title">Double-entry Test</h1>
+			<a href="test.html" class="title-link"><h1 class="title">Double-entry Test</h1></a>
 			<a href="index.html"><h5 class="title" style="float: right;">Back to the homepage</h5></a>
 		</header>
 		<div class="row">
@@ -24,7 +24,7 @@
 						<h4>Insert a timer:
 						<input type='number' class='form-control question_number' id="timer-test" min="1" max="10"> (min)</h4>
 						<br><br>
-						<button onClick="clock();startquestion();">GO!</button>	
+						<button onClick="startquestion();clock();">GO!</button>	
 					</div>
 					<form>
 						<table id="lista" class="table table-nonfluid">
@@ -38,7 +38,7 @@
 			<!-- Sidebar -->
 			<div class="col-sm-4">
 				<div>
-					<h3>Questions left: </h3>
+					<h3><div id="questions-left"></div></h3>
 					<br>
 					<h3><div id="clockdiv"></div></h3>
 				</div>
@@ -71,7 +71,7 @@
 		<!-- Footer -->
 		<footer>
 			<hr>
-			<p><a href="about.html">About me</a> | <a href="about.html">Wanna help? Shoot me an e-mail at: </a></p>
+			<p><a href="about.html">About the project</a> | <a href="about.html">Wanna help? Shoot me an e-mail at: </a></p>
         </footer>
 		</div>
 
