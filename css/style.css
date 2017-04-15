@@ -144,3 +144,35 @@ tbody {
 #txthint {
 	text-align: center; 
 }
+
+.choice {
+	color: black;
+	background-color: #ecf0f6;
+    border: 2px solid #31708f;
+    transition: background-color 0.5s ease;
+}
+
+.choice:hover{
+	color: white;
+	background-color: #31708f;
+}
+
+.insert-data {
+	text-align: center;
+}
+
+span.glyphicon-test {
+    font-size: 70px;
+    padding: 20px;
+}
+
+.go-button-test{
+	border-radius: 10px;
+	height: 60px;
+	width: 90px;
+	border: 
+}
+
+.input-test {
+	width: 50px;
+}
